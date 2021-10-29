@@ -6,8 +6,7 @@
   "scripts": {
 		"setup": "npm install && composer install",
     "start": "wp-scripts start",
-    "build": "wp-scripts build",
-    "prepare": "husky install"
+    "build": "wp-scripts build"
   },
   "repository": {
     "type": "git",
