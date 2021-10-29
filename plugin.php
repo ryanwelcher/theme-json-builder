@@ -11,3 +11,7 @@ if ( $var === 1 ) {
 }
 
 echo 'triggering error!';
+echo 'triggering error!';
+echo 'triggering error!';
+echo 'triggering error!';
+echo 'triggering error!';
