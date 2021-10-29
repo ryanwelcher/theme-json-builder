@@ -4,6 +4,7 @@
   "description": "A WordPress plugin to help generate theme.json files",
   "main": "index.js",
   "scripts": {
+		"setup": "npm install && composer install",
     "start": "wp-scripts start",
     "build": "wp-scripts build",
     "prepare": "husky install"
