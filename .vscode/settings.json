@@ -1,0 +1,7 @@
+{
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true,
+  },
+  "phpcs.executablePath": "./vendor/bin/phpcs",
+  "phpcs.standard": "WordPress",
+}
