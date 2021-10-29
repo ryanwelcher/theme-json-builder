@@ -6,7 +6,7 @@
   "scripts": {
     "start": "wp-scripts start",
     "build": "wp-scripts build",
-    "lint"
+    "prepare": "husky install"
   },
   "repository": {
     "type": "git",
