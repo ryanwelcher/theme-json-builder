@@ -1,0 +1,37 @@
+{
+  "name": "theme-json-builder",
+  "version": "0.0.1",
+  "description": "A WordPress plugin to help generate theme.json files",
+  "main": "index.js",
+  "scripts": {
+    "start": "wp-scripts start",
+    "build": "wp-scripts build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ryanwelcher/theme-json-builder.git"
+  },
+  "keywords": [
+    "WordPress",
+    "Gutenberg",
+    "Full Site Editing"
+  ],
+  "license": "GPL-2.0-or-later",
+  "bugs": {
+    "url": "https://github.com/ryanwelcher/theme-json-builder/issues"
+  },
+  "homepage": "https://github.com/ryanwelcher/theme-json-builder#readme",
+  "devDependencies": {
+    "@wordpress/scripts": "^19.0.0",
+    "husky": "^7.0.0",
+    "lint-staged": "^9.2.5"
+  },
+  "lint-staged": {
+		"*.scss": [
+			"wp-scripts lint-style"
+		],
+		"*.{js,ts,tsx,yml}": [
+			"wp-scripts lint-js"
+		]
+	}
+}

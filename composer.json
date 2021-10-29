@@ -1,0 +1,20 @@
+{
+    "name": "ryanwelcher/theme-json-builder",
+    "description": "A WordPress plugin to help generate theme.json files.",
+    "type": "wordpress-plugin",
+    "license": "GPL-2.0-or-later",
+    "authors": [
+        {
+            "name": "Ryan Welcher",
+            "email": "ryan.welcher@automattic.com"
+        }
+    ],
+    "require-dev": {
+        "dealerdirect/phpcodesniffer-composer-installer": "^0.7",
+        "wp-coding-standards/wpcs": "^2.2"
+    },
+    "scripts": {
+		"format": "phpcbf --standard=WordPress --report-summary --report-source",
+		"lint": "phpcs --standard=WordPress"
+	}
+}
