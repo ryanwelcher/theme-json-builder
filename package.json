@@ -24,18 +24,18 @@
   "homepage": "https://github.com/ryanwelcher/theme-json-builder#readme",
   "devDependencies": {
     "@wordpress/scripts": "^19.0.0",
-    "husky": "^7.0.0",
-    "lint-staged": "^9.2.5"
+    "husky": "^7.0.4",
+    "lint-staged": "^11.2.6"
   },
   "lint-staged": {
-    "*.php":[
+    "*.php": [
       "composer run lint"
     ],
-		"*.scss": [
-			"wp-scripts lint-style"
-		],
-		"*.{js,ts,tsx,yml}": [
-			"wp-scripts lint-js"
-		]
-	}
+    "*.scss": [
+      "wp-scripts lint-style"
+    ],
+    "*.{js,ts,tsx,yml}": [
+      "wp-scripts lint-js"
+    ]
+  }
 }
