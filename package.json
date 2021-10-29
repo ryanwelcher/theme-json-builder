@@ -31,10 +31,10 @@
     "*.php": [
       "composer run lint"
     ],
-    "*.scss": [
+    "*.css": [
       "wp-scripts lint-style"
     ],
-    "*.{js,ts,tsx,yml}": [
+    "*.{js}": [
       "wp-scripts lint-js"
     ]
   }
