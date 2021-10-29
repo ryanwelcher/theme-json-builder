@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "wp-scripts start",
-    "build": "wp-scripts build"
+    "build": "wp-scripts build",
+    "lint"
   },
   "repository": {
     "type": "git",
@@ -27,6 +28,9 @@
     "lint-staged": "^9.2.5"
   },
   "lint-staged": {
+    "*.php":[
+      "composer run lint"
+    ],
 		"*.scss": [
 			"wp-scripts lint-style"
 		],
