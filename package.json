@@ -4,7 +4,7 @@
   "description": "A WordPress plugin to help generate theme.json files",
   "main": "index.js",
   "scripts": {
-		"setup": "npm install && composer install",
+    "setup": "npm install && composer install",
     "start": "wp-scripts start",
     "build": "wp-scripts build"
   },
@@ -37,5 +37,9 @@
     "*.{js}": [
       "wp-scripts lint-js"
     ]
+  },
+  "dependencies": {
+    "@wordpress/dom-ready": "^3.2.2",
+    "@wordpress/element": "^4.0.3"
   }
 }
