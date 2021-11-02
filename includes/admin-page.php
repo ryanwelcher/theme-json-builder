@@ -34,7 +34,7 @@ function register_custom_admin_page() {
  * Callback to render the contents of the page to be replaced by the React application.
  */
 function render_custom_admin_page_content() {
-	echo \wp_kses_post( '<div id="app">Requires JavaScript</div>' );
+	echo \wp_kses_post( sprintf( '<div id="app">%s</div>', esc_html_e( 'Requires JavaScript', 'theme-json-builder' ) ) );
 }
 
 /**
