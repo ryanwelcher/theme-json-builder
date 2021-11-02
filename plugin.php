@@ -17,12 +17,12 @@ use ThemeJsonBuilder\Admin;
 /**
  * Helpful constants
  */
-define( 'THEM_JSON_BUILDER_DIR_PATH', plugin_dir_path( __FILE__ ) );
-define( 'THEM_JSON_BUILDER_INC_PATH', THEM_JSON_BUILDER_DIR_PATH . '/includes/' );
+define( 'THEME_JSON_BUILDER_DIR_PATH', plugin_dir_path( __FILE__ ) );
+define( 'THEME_JSON_BUILDER_INC_PATH', THEME_JSON_BUILDER_DIR_PATH . '/includes/' );
 
 
 // Require the files.
-require_once THEM_JSON_BUILDER_INC_PATH . 'admin-page.php';
+require_once THEME_JSON_BUILDER_INC_PATH . 'admin-page.php';
 
 
 /**
