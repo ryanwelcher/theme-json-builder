@@ -12,6 +12,7 @@ namespace ThemeJsonBuilder\Admin;
  */
 function init() {
 	\add_action( 'admin_menu', __NAMESPACE__ . '\register_custom_admin_page' );
+	\add_action( 'admin_enqueue_scripts', __NAMESPACE__ . '\enqueue_custom_admin_page_scripts' );
 }
 
 
@@ -34,4 +35,30 @@ function register_custom_admin_page() {
  */
 function render_custom_admin_page_content() {
 	echo \wp_kses_post( '<div id="app">Requires JavaScript</div>' );
+}
+
+/**
+ * Enqueue the JavaScript for our custom page
+ *
+ * @param string $hook The current admin page.
+ */
+function enqueue_custom_admin_page_scripts( $hook ) {
+
+	if ( 'toplevel_page_theme-json-creator' !== $hook ) {
+		return;
+	}
+
+	$asset_path = THEME_JSON_BUILDER_DIR_PATH . 'build/index.asset.php';
+
+	if ( file_exists( $asset_path ) ) {
+		$assets = include $asset_path;
+		wp_enqueue_script(
+			'my_custom_script',
+			THEME_JSON_BUILDER_DIR_URL . '/build/index.js',
+			$assets['dependencies'],
+			$assets['version'],
+			true
+		);
+
+	}
 }
