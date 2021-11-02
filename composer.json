@@ -7,6 +7,10 @@
         {
             "name": "Ryan Welcher",
             "email": "ryan.welcher@automattic.com"
+        },
+		{
+            "name": "Daisy Olsen",
+            "email": "daisy.olsen@automattic.com"
         }
     ],
     "require-dev": {
