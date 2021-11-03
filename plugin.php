@@ -13,20 +13,23 @@
 namespace ThemeJsonBuilder;
 
 use ThemeJsonBuilder\Admin;
+use ThemeJsonBuilder\PostType;
 
 /**
  * Helpful constants
  */
 define( 'THEME_JSON_BUILDER_DIR_PATH', plugin_dir_path( __FILE__ ) );
 define( 'THEME_JSON_BUILDER_DIR_URL', plugin_dir_url( __FILE__ ) );
-define( 'THEME_JSON_BUILDER_INC_PATH', THEME_JSON_BUILDER_DIR_PATH . '/includes/' );
+define( 'THEME_JSON_BUILDER_INC_PATH', THEME_JSON_BUILDER_DIR_PATH . 'includes/' );
 
 
 // Require the files.
 require_once THEME_JSON_BUILDER_INC_PATH . 'admin-page.php';
+require_once THEME_JSON_BUILDER_INC_PATH . 'post-type.php';
 
 
 /**
  * Entry point for the plugin.
  */
 Admin\init();
+PostType\init();
