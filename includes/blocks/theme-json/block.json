@@ -1,0 +1,8 @@
+{
+	"$schema":"https://json.schemastore.org/block.json",
+	"apiVersion": 2,
+	"name": "theme-json-builder/theme-json",
+	"title": "Theme.json",
+	"example": {},
+	"editorScript": "../../build/theme-json.js"
+}
