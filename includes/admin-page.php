@@ -52,7 +52,7 @@ function enqueue_custom_admin_page_scripts( $hook ) {
 
 	if ( file_exists( $asset_path ) ) {
 		$assets = include $asset_path;
-		wp_enqueue_script(
+		\wp_enqueue_script(
 			'my_custom_script',
 			THEME_JSON_BUILDER_DIR_URL . '/build/index.js',
 			$assets['dependencies'],
