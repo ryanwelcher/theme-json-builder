@@ -39,6 +39,7 @@
     ]
   },
   "dependencies": {
+    "@wordpress/blocks": "^11.1.2",
     "@wordpress/dom-ready": "^3.2.2",
     "@wordpress/element": "^4.0.3"
   }
