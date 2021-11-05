@@ -1,0 +1,17 @@
+{
+	"$schema": "https://json.schemastore.org/block.json",
+	"apiVersion": 2,
+	"name": "theme-json-builder/settings",
+	"title": "settings",
+    "description": "A block that uses a shortcode to render random photos",
+    "version": "1.0.0",
+    "category": "media",
+	"icon": "format-gallery",
+    "attributes": {},
+	"example": {},
+	"supports": {
+		"multiple": false
+	},
+	"parent": ["theme-json-builder/wrapper"],
+	"editorScript": "file:../../../build/settings.js"
+}
