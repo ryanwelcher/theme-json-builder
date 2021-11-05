@@ -15,27 +15,34 @@ function init() {
 }
 
 /**
- * Callback for the registering the custom blocks.
+ * The list of blocks this plugin registers
  */
-function register_custom_blocks() {
-	// Include the blocks.
-	register_custom_block( THEME_JSON_BUILDER_BLOCK_DIR . 'theme-json' );
-}
-
-/**
- * Helper to register and individual block.
- *
- * @param string $dir The path to the block.json file.
- */
-function register_custom_block( $dir ) {
-	register_block_type(
-		$dir,
+function available_blocks() {
+	return apply_filters(
+		'theme_json_builder_allowed_blocks',
 		array(
-			'render_callback' => function( $attributes, $content, $block ) {
-				require_once $dir . '/template.php';
-			},
+			'theme-json-builder/wrapper',
+			'theme-json-builder/settings',
 		)
 	);
 }
 
-
+/**
+ * Callback for the registering the custom blocks.
+ */
+function register_custom_blocks() {
+	// Register the blocks.
+	foreach ( available_blocks() as $block ) {
+		$block_dir = preg_replace( '/^[a-z\-]*\//', '', $block );
+		register_block_type(
+			THEME_JSON_BUILDER_BLOCK_DIR . $block_dir,
+			array(
+				'render_callback' => function( $attributes, $content, $block_instance ) use ( $block_dir ) {
+					ob_start();
+					require_once THEME_JSON_BUILDER_BLOCK_DIR . $block_dir . '/template.php';
+					return ob_get_clean();
+				},
+			)
+		);
+	}
+}
