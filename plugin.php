@@ -25,12 +25,10 @@ define( 'THEME_JSON_BUILDER_INC_PATH', THEME_JSON_BUILDER_DIR_PATH . 'includes/'
 
 
 // Require the files.
-require_once THEME_JSON_BUILDER_INC_PATH . 'admin-page.php';
 require_once THEME_JSON_BUILDER_INC_PATH . 'post-type.php';
 
 
 /**
  * Entry point for the plugin.
  */
-Admin\init();
 PostType\init();
