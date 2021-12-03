@@ -42,8 +42,5 @@
       "wp-scripts lint-js"
     ]
   },
-  "dependencies": {
-    "@wordpress/dom-ready": "^3.2.2",
-    "@wordpress/element": "^4.0.3"
-  }
+  "dependencies": {}
 }
