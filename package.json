@@ -7,9 +7,10 @@
     "setup": "npm install && composer install",
     "start": "wp-scripts start",
     "build": "wp-scripts build",
+    "packages-update": "wp-scripts packages-update",
+    "env": "wp-env",
     "env:start": "wp-env start",
-    "env:stop": "wp-env stop",
-    "env:logs": "wp-env logs"
+    "env:stop": "wp-env stop"
   },
   "repository": {
     "type": "git",
@@ -26,8 +27,8 @@
   },
   "homepage": "https://github.com/ryanwelcher/theme-json-builder#readme",
   "devDependencies": {
-    "@wordpress/env": "^4.1.2",
-    "@wordpress/scripts": "^19.0.0",
+    "@wordpress/env": "^4.1.3",
+    "@wordpress/scripts": "^19.2.2",
     "husky": "^7.0.4",
     "lint-staged": "^11.2.6"
   },
@@ -41,11 +42,5 @@
     "*.{js}": [
       "wp-scripts lint-js"
     ]
-  },
-  "dependencies": {
-    "@wordpress/block-editor": "^7.0.4",
-    "@wordpress/blocks": "^11.1.2",
-    "@wordpress/dom-ready": "^3.2.2",
-    "@wordpress/element": "^4.0.3"
   }
 }
