@@ -1,0 +1,21 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Listen for Xdebug",
+            "type": "php",
+            "request": "launch",
+            "port": 9003,
+			"pathMappings": {
+				"/var/www/html/wp-content/plugins/theme-json-builder": "${workspaceFolder}/"
+			},
+        },
+		{
+			"name": "Listen for JS",
+			"type": "chrome",
+			"request": "launch",
+			"url": "http://localhost:8888/",
+			"webRoot": "${workspaceFolder}/",
+		}
+    ]
+}
