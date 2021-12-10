@@ -13,7 +13,7 @@
 
 namespace ThemeJsonBuilder;
 
-use ThemeJsonBuilder\Admin;
+use ThemeJsonBuilder\Datastore;
 use ThemeJsonBuilder\PostType;
 use ThemeJsonBuilder\Blocks;
 
@@ -28,6 +28,7 @@ define( 'THEME_JSON_BUILDER_BLOCK_DIR', THEME_JSON_BUILDER_INC_PATH . 'blocks/' 
 
 // Require the files.
 require_once THEME_JSON_BUILDER_INC_PATH . 'post-type.php';
+require_once THEME_JSON_BUILDER_INC_PATH . 'datastore.php';
 require_once THEME_JSON_BUILDER_INC_PATH . 'blocks.php';
 
 /**
@@ -35,3 +36,4 @@ require_once THEME_JSON_BUILDER_INC_PATH . 'blocks.php';
  */
 PostType\init();
 Blocks\init();
+Datastore\init();
