@@ -12,7 +12,7 @@ import save from './save';
 
 const { name } = json;
 
-registerBlockType(name, {
+registerBlockType( name, {
 	edit,
 	save,
-});
+} );

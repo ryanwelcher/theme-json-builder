@@ -34,7 +34,7 @@ function register_custom_post_type() {
 			'public'        => true,
 			'show_in_rest'  => true,
 			'template'      => array(
-				array( 'theme-json-builder/wrapper' ),
+				array( 'theme-json-builder/theme-json' ),
 			),
 			'template_lock' => true,
 		)

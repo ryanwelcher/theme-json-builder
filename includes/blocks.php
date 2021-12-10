@@ -21,7 +21,7 @@ function available_blocks() {
 	return apply_filters(
 		'theme_json_builder_allowed_blocks',
 		array(
-			'theme-json-builder/wrapper',
+			'theme-json-builder/theme-json',
 			'theme-json-builder/settings',
 		)
 	);

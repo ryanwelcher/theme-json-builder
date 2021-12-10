@@ -7,14 +7,12 @@ import {
 	InspectorControls,
 } from '@wordpress/block-editor';
 
-const Edit = () => {
+const Edit = ( { setAttributes } ) => {
 	const blockProps = useBlockProps();
 	return (
-		<div {...blockProps}>
-			&#123;
+		<div { ...blockProps }>
 			<InspectorControls>Version: 1</InspectorControls>
-			<InnerBlocks templateLock={false} />
-			&#125;
+			<InnerBlocks templateLock={ false } />
 		</div>
 	);
 };

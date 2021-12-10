@@ -1,8 +1,8 @@
-const defaultConfig = require('@wordpress/scripts/config/webpack.config');
+const defaultConfig = require( '@wordpress/scripts/config/webpack.config' );
 module.exports = {
 	...defaultConfig,
 	entry: {
-		wrapper: './includes/blocks/wrapper',
+		'theme-json': './includes/blocks/theme-json',
 		settings: './includes/blocks/settings',
 	},
 };
