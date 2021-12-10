@@ -5,3 +5,6 @@ export const UPDATE_JSON = 'UPDATE_JSON';
 export const DEFAULT_STATE = {
 	themeJson: '',
 };
+
+// Store name
+export const STORE_NAME = 'theme-json-builder';

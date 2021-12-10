@@ -6,21 +6,10 @@ import { createReduxStore, register } from '@wordpress/data';
 /**
  * Internal Dependencies
  */
-import { DEFAULT_STATE, UPDATE_JSON } from './constants';
+import { DEFAULT_STATE, UPDATE_JSON, STORE_NAME } from './constants';
 
-const actions = {
-	updateJSON( path, property ) {
-		return {
-			type: UPDATE_JSON,
-			payload: {
-				path,
-				property,
-			},
-		};
-	},
-};
-
-const store = createReduxStore( 'theme-json-builder', {
+// Define the store.
+const store = createReduxStore( STORE_NAME, {
 	reducer( state = DEFAULT_STATE, { type, payload } ) {
 		switch ( type ) {
 			case UPDATE_JSON:
@@ -32,7 +21,17 @@ const store = createReduxStore( 'theme-json-builder', {
 
 		return state;
 	},
-	actions,
+	actions: {
+		updateJSON( path, property ) {
+			return {
+				type: UPDATE_JSON,
+				payload: {
+					path,
+					property,
+				},
+			};
+		},
+	},
 	selectors: {
 		getThemeJson( state ) {
 			return state.themeJson;
@@ -40,5 +39,5 @@ const store = createReduxStore( 'theme-json-builder', {
 	},
 } );
 
-//
+// Register the store.
 register( store );
