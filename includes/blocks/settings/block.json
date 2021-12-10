@@ -1,0 +1,27 @@
+{
+	"$schema": "https://json.schemastore.org/block.json",
+	"apiVersion": 2,
+	"name": "theme-json-builder/settings",
+	"title": "settings",
+    "description": "A block that uses a shortcode to render random photos",
+    "version": "1.0.0",
+    "category": "media",
+	"icon": "format-gallery",
+    "attributes": {
+		"objectPath": {
+			"type": "string"
+		},
+		"objectProperty": {
+			"type": "string"
+		}
+	},
+	"providesContext": {
+		"theme-builder/object-path": "objectPath"
+	},
+	"usesContext": ["theme-builder/object-path"],
+	"example": {},
+	"supports": {
+	},
+	"parent": ["theme-json-builder/theme-json"],
+	"editorScript": "file:../../../build/settings.js"
+}

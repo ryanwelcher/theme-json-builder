@@ -7,6 +7,8 @@
 
 namespace ThemeJsonBuilder\PostType;
 
+use function ThemeJsonBuilder\Blocks\available_blocks;
+
 /**
  * Entry point
  */
@@ -23,14 +25,18 @@ function register_custom_post_type() {
 	register_post_type(
 		'theme-json',
 		array(
-			'labels'       => array(
+			'labels'        => array(
 				'name'          => _x( 'theme.json', 'Post type general name', 'theme-json-builder' ),
 				'singular_name' => _x( 'theme.json', 'Post type singular name', 'theme-json-builder' ),
 				'menu_name'     => _x( 'Theme JSON', 'Admin Menu text', 'theme-json-builder' ),
 				'add_new'       => __( 'Add New theme.json', 'theme-json-builder' ),
 			),
-			'public'       => true,
-			'show_in_rest' => true,
+			'public'        => true,
+			'show_in_rest'  => true,
+			'template'      => array(
+				array( 'theme-json-builder/theme-json' ),
+			),
+			'template_lock' => true,
 		)
 	);
 }
@@ -45,21 +51,9 @@ function remove_core_blocks( $allowed_block_types, $editor_context ) {
 	// Remove all the core blocks from this post type.
 	if ( 'theme-json' === $editor_context->post->post_type ) {
 		// Return the array of custom blocks we will allow.
-		return get_allowed_custom_block_list();
+		return available_blocks();
 	}
 
 	// Return all registered blocks.
 	return $allowed_block_types;
 }
-
-/**
- * Helper to return the list of custom blocks we'll use.
- *
- * @todo Get tricksy in here to scan the files and create the list that way.
- *
- * @return array The list of custom blocks.
- */
-function get_allowed_custom_block_list() {
-	return apply_filters( 'theme_json_builder_allowed_blocks', array() );
-}
-
