@@ -36,7 +36,7 @@ function register_custom_post_type() {
 			'template'      => array(
 				array( 'theme-json-builder/theme-json' ),
 			),
-			'template_lock' => true,
+			'template_lock' => false,
 		)
 	);
 }
