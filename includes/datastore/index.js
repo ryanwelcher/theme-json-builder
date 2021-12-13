@@ -1,4 +1,10 @@
 /**
+ * External dependencies
+ */
+// eslint-disable-next-line import/no-extraneous-dependencies
+import { set as resolve } from 'lodash';
+
+/**
  * WordPress Dependencies
  */
 import { createReduxStore, register } from '@wordpress/data';
@@ -10,31 +16,35 @@ import { DEFAULT_STATE, UPDATE_JSON, STORE_NAME } from './constants';
 
 // Define the store.
 const store = createReduxStore( STORE_NAME, {
-	reducer( state = DEFAULT_STATE, { type, payload } ) {
+	reducer( themeJSON = DEFAULT_STATE, action ) {
+		const { type, payload } = action;
+
 		switch ( type ) {
 			case UPDATE_JSON:
+				const { path, property, value } = payload;
+				const pathArray = path.split( '.' ).filter( Boolean );
 				return {
-					...state,
-					payload,
+					...resolve( themeJSON, [ ...pathArray, property ], value ),
 				};
 		}
 
-		return state;
+		return themeJSON;
 	},
 	actions: {
-		updateJSON( path, property ) {
+		updateThemeJSON( path, property, value ) {
 			return {
 				type: UPDATE_JSON,
 				payload: {
 					path,
 					property,
+					value,
 				},
 			};
 		},
 	},
 	selectors: {
-		getThemeJson( state ) {
-			return state.themeJson;
+		getThemeJSON( themeJSON ) {
+			return JSON.stringify( themeJSON, null, '\t' );
 		},
 	},
 } );
