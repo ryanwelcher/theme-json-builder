@@ -18,11 +18,11 @@
 		},
 		"objectPath": {
 			"type": "string",
-			"default": "root"
+			"default": ""
 		},
 		"objectProperty": {
 			"type": "string",
-			"default": "root"
+			"default": ""
 		}
 	},
 	"providesContext": {
@@ -31,7 +31,10 @@
 	"supports": {
 		"multiple": true,
 		"html": false,
-		"customClassName": false
+		"customClassName": false,
+		"typography": {
+			"fontSize": true
+		}
 	},
 	"editorScript": "file:../../../build/theme-json.js"
 }
