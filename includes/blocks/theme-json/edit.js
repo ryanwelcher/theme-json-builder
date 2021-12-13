@@ -13,6 +13,7 @@ import {
 	TextControl,
 } from '@wordpress/components';
 import { useDispatch } from '@wordpress/data';
+import { useEffect } from '@wordpress/element';
 import { __ } from '@wordpress/i18n';
 
 /**
@@ -28,14 +29,23 @@ const Edit = ( {
 	const blockProps = useBlockProps( {
 		className: 'has-extra-small-font-size', // This might be an issue
 	} );
-
 	const { updateThemeJSON } = useDispatch( STORE_NAME );
 
-	const topCode = `{\n\t"$schema": "${ schema }",\n\t"version": ${ version }`;
+	// How can I abstract this? This updates the datastore when ever the attribute is changed.
+	useEffect( () => {
+		updateThemeJSON( objectPath, '$schema', schema );
+	}, [ schema ] );
+
+	useEffect( () => {
+		updateThemeJSON( objectPath, 'version', version );
+	}, [ version ] );
 
 	return (
 		<div { ...blockProps }>
-			<SourceCodeDisplay lang="json" sourceCode={ topCode } />
+			<SourceCodeDisplay
+				lang="json"
+				sourceCode={ `{\n\t"$schema": "${ schema }",\n\t"version": ${ version }` }
+			/>
 			<InnerBlocks />
 			<SourceCodeDisplay lang="json" sourceCode={ '}' } />
 			<InspectorControls>
@@ -46,11 +56,6 @@ const Edit = ( {
 							value={ schema }
 							onChange={ ( newSchema ) => {
 								setAttributes( { schema: newSchema } );
-								updateThemeJSON(
-									objectPath,
-									'schema',
-									newSchema
-								);
 							} }
 						/>
 					</PanelRow>
@@ -64,7 +69,9 @@ const Edit = ( {
 							] }
 							value={ version }
 							onChange={ ( newVersion ) => {
-								setAttributes( { version: newVersion } );
+								setAttributes( {
+									version: Number( newVersion ),
+								} );
 								updateThemeJSON(
 									objectPath,
 									'version',
