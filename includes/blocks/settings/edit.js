@@ -10,7 +10,7 @@ import { useDispatch } from '@wordpress/data';
  */
 import SourceCodeDisplay from '../../components/source-code-display';
 import { STORE_NAME } from '../../datastore/constants';
-import getAllowedBlocks from '../../utils/get-allowed-blocks';
+import { getAllowedBlocks, generateCodeIndent } from '../../utils/';
 import { useShouldDisplayContent } from '../../hooks/use-should-display-content';
 
 const Edit = ( {
@@ -32,13 +32,14 @@ const Edit = ( {
 		updateThemeJSON( objectPath, objectProperty, {} );
 	}, [] );
 
-	// @todo make this reusable for other blocks
+	// @todo make this reusable for other blocks]
+	const codeIndent = generateCodeIndent( objectPath );
 	const topCode = displayContent
-		? `\t"${ objectProperty }": {`
-		: `\t"${ objectProperty }": { ... }`;
+		? `${ codeIndent }"${ objectProperty }": {`
+		: `${ codeIndent }"${ objectProperty }": { ... }`;
 
 	return (
-		<div { ...blockProps } style={ { paddingLeft: '0' } }>
+		<div { ...blockProps }>
 			<SourceCodeDisplay lang="json" sourceCode={ topCode } />
 
 			{ displayContent && (
@@ -48,7 +49,10 @@ const Edit = ( {
 			) }
 
 			{ displayContent && (
-				<SourceCodeDisplay lang="json" sourceCode={ '\t}' } />
+				<SourceCodeDisplay
+					lang="json"
+					sourceCode={ `${ codeIndent }}` }
+				/>
 			) }
 		</div>
 	);
