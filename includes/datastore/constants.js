@@ -2,12 +2,9 @@
 export const UPDATE_JSON = 'UPDATE_JSON';
 
 // Default state
-export const DEFAULT_STATE_1 = {
-	$schema: 'https://schemas.wp.org/trunk/theme.json',
-	version: 2,
-};
+export const DEFAULT_STATE = {};
 
-export const DEFAULT_STATE = {
+export const DEFAULT_STATE_TEST = {
 	$schema: 'https://schemas.wp.org/trunk/theme.json',
 	version: 2,
 	settings: {
