@@ -10,7 +10,7 @@ import { useDispatch } from '@wordpress/data';
  */
 import SourceCodeDisplay from '../../components/source-code-display';
 import { STORE_NAME } from '../../datastore/constants';
-import { getAllowedBlocks, generateCodeIndent } from '../../utils/';
+import { getAllowedBlocks, generateCodeBrackets } from '../../utils/';
 import { useShouldDisplayContent } from '../../hooks/use-should-display-content';
 
 const Edit = ( {
@@ -27,20 +27,22 @@ const Edit = ( {
 	} );
 	const parentPath = context[ 'theme-builder/object-path' ];
 	const { updateThemeJSON } = useDispatch( STORE_NAME );
+
+	// Should the be a hook?
+	const [ topBracket, bottomBracket ] = generateCodeBrackets(
+		objectPath,
+		objectProperty,
+		displayContent
+	);
+
 	useEffect( () => {
 		setAttributes( { objectPath: `${ parentPath }.${ objectProperty }` } );
 		updateThemeJSON( objectPath, objectProperty, {} );
 	}, [] );
 
-	// @todo make this reusable for other blocks]
-	const codeIndent = generateCodeIndent( objectPath );
-	const topCode = displayContent
-		? `${ codeIndent }"${ objectProperty }": {`
-		: `${ codeIndent }"${ objectProperty }": { ... }`;
-
 	return (
 		<div { ...blockProps }>
-			<SourceCodeDisplay lang="json" sourceCode={ topCode } />
+			<SourceCodeDisplay lang="json" sourceCode={ topBracket } />
 
 			{ displayContent && (
 				<InnerBlocks
@@ -49,10 +51,7 @@ const Edit = ( {
 			) }
 
 			{ displayContent && (
-				<SourceCodeDisplay
-					lang="json"
-					sourceCode={ `${ codeIndent }}` }
-				/>
+				<SourceCodeDisplay lang="json" sourceCode={ bottomBracket } />
 			) }
 		</div>
 	);
