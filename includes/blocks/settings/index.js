@@ -8,12 +8,13 @@ import { registerBlockType } from '@wordpress/blocks';
  */
 import json from './block.json';
 import edit from './edit';
+import save from './save';
 
 const { name } = json;
 
 registerBlockType( name, {
 	edit,
-	save: () => null,
+	save,
 	variations: [
 		{
 			name: 'settings',
@@ -25,9 +26,25 @@ registerBlockType( name, {
 				variationAttributes.objectProperty,
 		},
 		{
-			name: 'colors',
-			title: 'Colors',
-			attributes: { objectProperty: 'colors' },
+			name: 'styles',
+			title: 'Styles',
+			attributes: { objectProperty: 'styles' },
+			isActive: ( blockAttributes, variationAttributes ) =>
+				blockAttributes.objectProperty ===
+				variationAttributes.objectProperty,
+		},
+		{
+			name: 'custom-templates',
+			title: 'Custom Templates',
+			attributes: { objectProperty: 'customTemplates' },
+			isActive: ( blockAttributes, variationAttributes ) =>
+				blockAttributes.objectProperty ===
+				variationAttributes.objectProperty,
+		},
+		{
+			name: 'template-parts',
+			title: 'templateParts',
+			attributes: { objectProperty: 'templateParts' },
 			isActive: ( blockAttributes, variationAttributes ) =>
 				blockAttributes.objectProperty ===
 				variationAttributes.objectProperty,
