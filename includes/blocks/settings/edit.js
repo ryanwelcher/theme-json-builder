@@ -28,7 +28,7 @@ const Edit = ( {
 	const parentPath = context[ 'theme-builder/object-path' ];
 	const { updateThemeJSON } = useDispatch( STORE_NAME );
 
-	// Should the be a hook?
+	// Should this be a hook?
 	const [ topBracket, bottomBracket ] = generateCodeBrackets(
 		objectPath,
 		objectProperty,
