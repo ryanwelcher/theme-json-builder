@@ -6,10 +6,12 @@
     "description": "A block that uses a shortcode to render random photos",
     "version": "1.0.0",
     "category": "media",
+
 	"icon": "format-gallery",
     "attributes": {
 		"objectPath": {
-			"type": "string"
+			"type": "string",
+			"default":""
 		},
 		"objectProperty": {
 			"type": "string"
@@ -24,4 +26,5 @@
 	},
 	"parent": ["theme-json-builder/theme-json"],
 	"editorScript": "file:../../../build/settings.js"
+
 }

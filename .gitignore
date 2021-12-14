@@ -3,3 +3,4 @@ build
 .vscode
 
 /vendor/
+theme-json-reference.json
