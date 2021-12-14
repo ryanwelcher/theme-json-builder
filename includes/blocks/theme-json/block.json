@@ -29,12 +29,13 @@
 		"theme-builder/object-path": "objectPath"
 	},
 	"supports": {
-		"multiple": true,
+		"multiple": false,
 		"html": false,
 		"customClassName": false,
 		"typography": {
 			"fontSize": true
 		}
 	},
-	"editorScript": "file:../../../build/theme-json.js"
+	"editorScript": "file:../../../build/theme-json.js",
+	"editorStyle": "file:../../../build/theme-json.css"
 }

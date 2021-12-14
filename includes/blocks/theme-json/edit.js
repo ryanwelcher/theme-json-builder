@@ -21,6 +21,7 @@ import { __ } from '@wordpress/i18n';
  */
 import SourceCodeDisplay from '../../components/source-code-display';
 import { STORE_NAME } from '../../datastore/constants';
+import './editor.scss';
 
 const Edit = ( {
 	attributes: { objectPath, schema, version },
