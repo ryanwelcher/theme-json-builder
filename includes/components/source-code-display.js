@@ -25,7 +25,7 @@ export const CopyButton = ( { sourceCode } ) => {
 	);
 };
 
-const SourceCodeDisplay = ( { sourceCode, lang } ) => {
+const SourceCodeDisplay = ( { sourceCode, lang = 'json' } ) => {
 	return (
 		<>
 			<SyntaxHighlighter language={ lang } style={ tomorrow }>
