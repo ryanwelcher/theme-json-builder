@@ -10,25 +10,27 @@ import { Button } from '@wordpress/components';
 import { useCopyToClipboard } from '@wordpress/compose';
 import { __ } from '@wordpress/i18n';
 
-const SourceCodeDisplay = ( { sourceCode, lang } ) => {
+export const CopyButton = ( { sourceCode } ) => {
 	const ref = useCopyToClipboard( sourceCode, () => {} );
+	return (
+		<Button
+			type="secondary"
+			ref={ ref }
+			icon="clipboard"
+			showTooltip
+			label={ __( 'Copy source code', 'gutenberg-block-level-locking' ) }
+		>
+			{ __( 'Copy source code', 'gutenberg-block-level-locking' ) }
+		</Button>
+	);
+};
+
+const SourceCodeDisplay = ( { sourceCode, lang } ) => {
 	return (
 		<>
 			<SyntaxHighlighter language={ lang } style={ tomorrow }>
 				{ sourceCode }
 			</SyntaxHighlighter>
-			<Button
-				type="secondary"
-				ref={ ref }
-				icon="clipboard"
-				showTooltip
-				label={ __(
-					'Copy source code',
-					'gutenberg-block-level-locking'
-				) }
-			>
-				{ __( 'Copy source code', 'gutenberg-block-level-locking' ) }
-			</Button>
 		</>
 	);
 };
