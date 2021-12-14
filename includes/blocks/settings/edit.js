@@ -11,7 +11,7 @@ import { useDispatch } from '@wordpress/data';
 import SourceCodeDisplay from '../../components/source-code-display';
 import { STORE_NAME } from '../../datastore/constants';
 import getAllowedBlocks from '../../utils/get-allowed-blocks';
-import { useHasSelectedChild } from '../../hooks/use-has-selected-child';
+import { useShouldDisplayContent } from '../../hooks/use-should-display-content';
 
 const Edit = ( {
 	context,
@@ -21,15 +21,16 @@ const Edit = ( {
 	clientId,
 } ) => {
 	const blockProps = useBlockProps();
-	const hasSelectedChild = useHasSelectedChild( clientId );
+	const displayContent = useShouldDisplayContent( {
+		isSelected,
+		clientId,
+	} );
 	const parentPath = context[ 'theme-builder/object-path' ];
 	const { updateThemeJSON } = useDispatch( STORE_NAME );
 	useEffect( () => {
 		setAttributes( { objectPath: `${ parentPath }.${ objectProperty }` } );
 		updateThemeJSON( objectPath, objectProperty, {} );
 	}, [] );
-
-	const displayContent = isSelected || hasSelectedChild;
 
 	// @todo make this reusable for other blocks
 	const topCode = displayContent
