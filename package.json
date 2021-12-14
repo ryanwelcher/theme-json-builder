@@ -11,6 +11,7 @@
     "lint:css": "wp-scripts lint-style",
     "lint:js": "wp-scripts lint-js",
     "packages-update": "wp-scripts packages-update",
+		"test:unit": "wp-scripts test-unit-js",
     "env": "wp-env",
     "env:start": "wp-env start",
     "env:stop": "wp-env stop",
